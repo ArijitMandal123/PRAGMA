@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="PRAGMA User Agreement - Terms of service and access protocols.">
+    <title>User Agreement | PRAGMA</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #0a0a0a;
+            --secondary: #1a1a1a;
+            --accent: #00ff88;
+            --accent-dim: #00cc6a;
+            --text: #ffffff;
+            --text-dim: #a0a0a0;
+            --border: #2a2a2a;
+            --warning: #ff4444;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', sans-serif;
+            background: var(--primary);
+            color: var(--text);
+            line-height: 1.6;
+        }
+
+        .main-header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(10, 10, 10, 0.9);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 1.5rem 2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .brand-name {
+            font-size: 1.8rem;
+            font-weight: 900;
+            letter-spacing: 0.3em;
+        }
+
+        .brand-link {
+            text-decoration: none;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--text) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .nav-list {
+            display: flex;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .nav-link {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            transition: color 0.3s ease;
+        }
+
+        .nav-link:hover {
+            color: var(--accent);
+        }
+
+        .main-content {
+            padding-top: 120px;
+            padding-bottom: 4rem;
+        }
+
+        .legal-document {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .document-header {
+            text-align: center;
+            margin-bottom: 4rem;
+            padding-bottom: 2rem;
+            border-bottom: 2px solid var(--border);
+        }
+
+        .document-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--accent) 0%, var(--text) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .document-metadata {
+            color: var(--text-dim);
+            font-size: 0.95rem;
+            margin: 0.5rem 0;
+        }
+
+        .document-classification {
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-top: 1rem;
+        }
+
+        .document-preamble {
+            background: rgba(0, 255, 136, 0.05);
+            border-left: 4px solid var(--accent);
+            padding: 2rem;
+            margin-bottom: 3rem;
+            border-radius: 8px;
+        }
+
+        .section-heading {
+            font-size: 2rem;
+            font-weight: 800;
+            margin-bottom: 1.5rem;
+            color: var(--accent);
+        }
+
+        .document-section {
+            margin-bottom: 4rem;
+        }
+
+        .subsection {
+            margin: 2rem 0;
+            padding-left: 1.5rem;
+            border-left: 2px solid var(--border);
+        }
+
+        .subsection-heading {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text);
+        }
+
+        .legal-text {
+            color: var(--text-dim);
+            line-height: 1.9;
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .legal-list {
+            list-style: none;
+            margin: 1.5rem 0;
+        }
+
+        .list-item {
+            color: var(--text-dim);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            padding-left: 2rem;
+            position: relative;
+        }
+
+        .list-item::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--accent);
+            font-size: 1.5rem;
+        }
+
+        .term-emphasis {
+            color: var(--accent);
+            font-weight: 700;
+        }
+
+        .legal-warning {
+            background: rgba(255, 68, 68, 0.1);
+            border-left: 4px solid var(--warning);
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            border-radius: 8px;
+            color: var(--warning);
+            font-weight: 600;
+        }
+
+        .document-footer {
+            background: var(--secondary);
+            padding: 2rem;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent);
+            margin-top: 4rem;
+        }
+
+        .legal-notice {
+            color: var(--text-dim);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .main-footer {
+            background: var(--secondary);
+            border-top: 1px solid var(--border);
+            padding: 3rem 2rem 2rem;
+            margin-top: 4rem;
+        }
+
+        .footer-container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .copyright-notice {
+            text-align: center;
+            color: var(--text-dim);
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .footer-nav-list {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            list-style: none;
+        }
+
+        .footer-link {
+            color: var(--text-dim);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s ease;
+        }
+
+        .footer-link:hover {
+            color: var(--accent);
+        }
+
+        @media (max-width: 768px) {
+            .nav-list {
+                gap: 1.5rem;
+            }
+
+            .footer-nav-list {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .subsection {
+                padding-left: 1rem;
+            }
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        ::selection {
+            background: var(--accent);
+            color: var(--primary);
+        }
+    </style>
+</head>
+<body>
+    <header class="main-header">
+        <div class="header-container">
+            <div class="logo">
+                <h1 class="brand-name"><a href="index.html" class="brand-link">PRAGMA</a></h1>
+            </div>
+            <nav class="primary-navigation">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="privacy.html" class="nav-link">Privacy Protocol</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <article class="legal-document">
+            <header class="document-header">
+                <h1 class="document-title">User Agreement</h1>
+                <p class="document-metadata">Agreement Effective Date: January 1, 2026</p>
+                <p class="document-metadata">Agreement Version: 7.1</p>
+                <p class="document-classification">Classification: Binding Contract</p>
+            </header>
+
+            <section class="document-preamble">
+                <h2 class="section-heading">Agreement Scope</h2>
+                <p class="legal-text">This User Agreement constitutes a legally binding contract between you, the accessing party, and PRAGMA. By accessing, querying, or otherwise interacting with PRAGMA systems, services, or resources, you accept these terms unconditionally and in their entirety.</p>
+                <p class="legal-text">PRAGMA maintains a controlled infrastructure containing proprietary data, methodologies, and computational resources. Access is a privilege granted under strict conditions. Violation of any provision within this Agreement results in immediate access termination and potential legal action.</p>
+                <p class="legal-warning">If you do not agree to these terms, you are prohibited from accessing PRAGMA systems.</p>
+            </section>
+
+            <section class="document-section">
+                <h2 class="section-heading">1. Definitions and Terminology</h2>
+                
+                <div class="subsection">
+                    <h3 class="subsection-heading">1.1 Key Terms</h3>
+                    <ul class="legal-list">
+                        <li class="list-item"><strong class="term-emphasis">User:</strong> Any individual, organization, or automated system that accesses PRAGMA infrastructure through any interface or protocol.</li>
+                        <li class="list-item"><strong class="term-emphasis">System:</strong> All PRAGMA-operated infrastructure, including but not limited to servers, databases, APIs, interfaces, documentation, and related computational resources.</li>
+                        <li class="list-item"><strong class="term-emphasis">Access:</strong> Any form of connection to, query of, or interaction with PRAGMA systems, regardless of method or duration.</li>
+                        <li class="list-item"><strong class="term-emphasis">Content:</strong> All data, code, documentation, analysis, and information provided by PRAGMA through any channel.</li>
+                        <li class="list-item"><strong class="term-emphasis">Unauthorized Use:</strong> Any access or utilization that violates the terms specified in this Agreement or exceeds granted permission levels.</li>
+                    </ul>
+                </div>
+            </section>
+
+            <section class="document-section">
+                <h2 class="section-heading">2. Access Authorization</h2>
+                
+                <div class="subsection">
+                    <h3 class="subsection-heading">2.1 Permission Framework</h3>
+                    <p class="legal-text">Access to PRAGMA systems is granted solely at PRAGMA's discretion. All users operate under a revocable license that may be terminated immediately without notice or explanation. Access does not constitute ownership of any data, right, or interest in PRAGMA resources.</p>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-heading">2.2 Authentication Requirements</h3>
+                    <p class="legal-text">Users must maintain secure authentication credentials. Sharing, transferring, or disclosing access credentials is strictly prohibited. Users are fully responsible for all activity conducted under their credentials, regardless of who performed the actions.</p>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-heading">2.3 Access Monitoring</h3>
+                    <p class="legal-text">All system access is monitored, logged, and subject to analysis. PRAGMA reserves the right to inspect, audit, and review all user activities without notification. There is no expectation of privacy when accessing PRAGMA systems beyond what is specified in our Privacy Protocol.</p>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-heading">2.4 Geographic and Jurisdictional Restrictions</h3>
+                    <p class="legal-text">PRAGMA may impose access restrictions based on geographic location, jurisdictional compliance requirements, or security protocols. Users are responsible for ensuring their access complies with all applicable local, national, and international regulations.</p>
+                </div>
+            </section>
+
+            <section class="document-section">
+                <h2 class="section-heading">3. Acceptable Use Policy</h2>
+                
+                <div class="subsection">
+                    <h3 class="subsection-heading">3.1 Permitted Activities</h3>
+                    <p class="legal-text">Users may access PRAGMA systems solely for legitimate professional, educational, or research purposes consistent with PRAGMA's institutional mission. All usage must comply with applicable laws and professional standards.</p>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-heading">3.2 Prohibited Conduct</h3>
+                    <p class="legal-text">The following activities are absolutely prohibited and constitute material breach of this Agreement:</p>
+                    <ul class="legal-list">
+                        <li class="list-item">Attempting to circumvent, disable, or interfere with security measures, authentication systems, or access controls</li>
+                        <li class="list-item">Conducting vulnerability scanning, penetration testing, or security assessments without explicit written authorization</li>
+                        <li class="list-item">Deploying automated systems, bots, scrapers, or scripts that generate excessive load or extract data at scale</li>
+                        <li class="list-item">Reverse engineering, decompiling, or attempting to derive source code from PRAGMA systems</li>
+                        <li class="list-item">Redistributing, republishing, or commercializing PRAGMA content without authorization</li>
+                        <li class="list-item">Transmitting malicious code, viruses, or any harmful computational payloads</li>
+                        <li class="list-item">Impersonating PRAGMA, its representatives, or other users</li>
+                        <li class="list-item">Using PRAGMA resources to violate third-party rights or applicable laws</li>
+                        <li class="list-item">Accessing systems or data beyond authorized permission levels</li>
+                        <li class="list-item">Interfering with other users' access or system performance</li>
+                    </ul>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-heading">3.3 Rate Limiting and Resource Allocation</h3>
+                    <p class="legal-text">PRAGMA imposes strict rate limits and resource quotas on all access. Users must respect these limitations. Attempts to circumvent rate limiting constitute unauthorized access and will result in immediate termination.</p>
+                </div>
+            </section>
+
+            <section class="document-section">
+                <h2 class="section-heading">4. Intellectual Property Rights</h2>
+                
+                <div class="subsection">
+                    <h3 class="subsection-heading">4.1 PRAGMA Ownership</h3>
+                    <p class="legal-text">All content, data, code, documentation, analysis, methodologies, interfaces, and related materials provided through PRAGMA systems are the exclusive intellectual property of PRAGMA. Users acquire no ownership rights through access or use.</p>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-heading">4.2 Limited License</h3>
+                    <p class="legal-text">PRAGMA grants users a limited, non-exclusive, non-transferable, revocable license to access and use provided content solely for the purposes authorized under this Agreement. This license terminates automatically upon Agreement violation or access revocation.</p>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-heading">4.3 Attribution Requirements</h3>
+                    <p class="legal-text">Any use of PRAGMA content in derivative works, publications, or public communications must include proper attribution to PRAGMA. Specific attribution formats are available upon request.</p>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-heading">4.4 Trademark Protection</h3>
+                    <p class="legal-text">PRAGMA, its logo, and related designations are protected trademarks. Unauthorized use of PRAGMA marks is prohibited and subject to legal action.</p>
+                </div>
+            </section>
+
+            <section class="document-section">
+                <h2 class="section-heading">5. Data Submission and User Content</h2>
+                
+                <div class="subsection">
+                    <h3 class="subsection-heading">5.1 Submitted Data Rights</h3>
+                    <p class="legal-text">Users who submit data, queries, or content to PRAGMA systems grant PRAGMA a perpetual, irrevocable, worldwide license to use, analyze, store, and process such submissions for operational purposes, service improvement, and research.</p>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-heading">5.2 User Warranties</h3>
+                    <p class="legal-text">Users warrant that all submitted content is lawful, does not violate third-party rights, and does not contain malicious code or harmful material. Users indemnify PRAGMA against all claims arising from user submissions.</p>
+                </div>
+            </section>
+
+            <section class="document-section">
+                <h2 class="section-heading">6. Service Availability and Modifications</h2>
+                
+                <div class="subsection">
+                    <h3 class="subsection-heading">6.1 No Availability Guarantee</h3>
+                    <p class="legal-text">PRAGMA systems are provided on an "as available" basis. PRAGMA makes no guarantees regarding uptime, availability, or uninterrupted access. Maintenance, security updates, or operational requirements may result in service interruption without notice.</p>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-heading">6.2 System Modifications</h3>
+                    <p class="legal-text">PRAGMA reserves the right to modify, suspend, or discontinue any aspect of its systems at any time. Users have no right to continued access to any particular feature, dataset, or service configuration.</p>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-heading">6.3 Content Accuracy</h3>
+                    <p class="legal-text">While PRAGMA maintains rigorous accuracy standards, users access all content at their own risk. PRAGMA does not warrant that content is error-free, current, or suitable for any particular purpose. Users are responsible for independent verification.</p>
+                </div>
+            </section>
+
+            <section class="document-section">
+                <h2 class="section-heading">7. Liability Limitations</h2>
+                
+                <div class="subsection">
+                    <h3 class="subsection-heading">7.1 Disclaimer of Warranties</h3>
+                    <p class="legal-text">PRAGMA systems and content are provided "as is" without warranties of any kind, express or implied, including but not limited to warranties of merchantability, fitness for particular purpose, or non-infringement. PRAGMA disclaims all warranties to the maximum extent permitted by law.</p>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-heading">7.2 Limitation of Liability</h3>
+                    <p class="legal-text">PRAGMA shall not be liable for any indirect, incidental, consequential, special, or punitive damages arising from system access or use, including but not limited to data loss, business interruption, or lost profits. PRAGMA's total liability shall not exceed the amount paid by the user for access, if any.</p>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-heading">7.3 User Indemnification</h3>
+                    <p class="legal-text">Users agree to indemnify, defend, and hold harmless PRAGMA, its officers, employees, and affiliates from all claims, damages, losses, and expenses arising from user's access, use, or violation of this Agreement.</p>
+                </div>
+            </section>
+
+            <section class="document-section">
+                <h2 class="section-heading">8. Enforcement and Termination</h2>
+                
+                <div class="subsection">
+                    <h3 class="subsection-heading">8.1 Immediate Termination</h3>
+                    <p class="legal-text">PRAGMA may terminate user access immediately upon any violation of this Agreement, security concern, or at PRAGMA's sole discretion. Termination may occur without warning or explanation.</p>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-heading">8.2 Consequences of Violation</h3>
+                    <p class="legal-text">Violation of this Agreement may result in: immediate access termination, account deletion, legal action for damages, reporting to law enforcement authorities, and permanent ban from all PRAGMA systems.</p>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-heading">8.3 Survival Provisions</h3>
+                    <p class="legal-text">Sections relating to intellectual property, liability limitations, indemnification, and dispute resolution survive termination of this Agreement.</p>
+                </div>
+            </section>
+
+            <section class="document-section">
+                <h2 class="section-heading">9. Dispute Resolution</h2>
+                
+                <div class="subsection">
+                    <h3 class="subsection-heading">9.1 Governing Law</h3>
+                    <p class="legal-text">This Agreement is governed by and construed in accordance with applicable law, without regard to conflict of law principles. Users consent to exclusive jurisdiction in designated courts for dispute resolution.</p>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-heading">9.2 Arbitration Requirement</h3>
+                    <p class="legal-text">All disputes arising from this Agreement shall be resolved through binding arbitration rather than court litigation. Arbitration proceedings shall be confidential and conducted according to institutional arbitration rules.</p>
+                </div>
+
+                <div class="subsection">
+                    <h3 class="subsection-heading">9.3 Class Action Waiver</h3>
+                    <p class="legal-text">Users waive any right to participate in class action lawsuits or class-wide arbitration against PRAGMA. All disputes must be brought individually.</p>
+                </div>
+            </section>
+
+            <section class="document-section">
+                <h2 class="section-heading">10. Agreement Modifications</h2>
+                <p class="legal-text">PRAGMA reserves the right to modify this Agreement at any time. Modifications become effective immediately upon posting. Continued system access following modifications constitutes acceptance of revised terms.</p>
+                <p class="legal-text">Users are responsible for regularly reviewing this Agreement. Failure to review updates does not excuse non-compliance.</p>
+            </section>
+
+            <section class="document-section">
+                <h2 class="section-heading">11. Severability and Interpretation</h2>
+                <p class="legal-text">If any provision of this Agreement is found unenforceable, remaining provisions remain in full effect. Section headings are for convenience only and do not affect interpretation.</p>
+                <p class="legal-text">This Agreement represents the complete understanding between parties and supersedes all prior agreements or representations regarding system access.</p>
+            </section>
+
+            <section class="document-section">
+                <h2 class="section-heading">12. Contact and Notices</h2>
+                <p class="legal-text">All notices regarding this Agreement must be submitted through official PRAGMA channels. Email communications do not constitute formal notice unless confirmed by PRAGMA.</p>
+                <p class="legal-text">PRAGMA may provide notice to users through system notifications, email, or posting on official channels. Users are responsible for maintaining current contact information.</p>
+            </section>
+
+            <footer class="document-footer">
+                <p class="legal-notice">By accessing PRAGMA systems, you acknowledge that you have read, understood, and agree to be bound by this User Agreement in its entirety.</p>
+                <p class="legal-notice">This Agreement is a binding legal contract. Access constitutes acceptance. Non-compliance will be enforced.</p>
+                <p class="legal-warning">PRAGMA maintains zero tolerance for Agreement violations. All access is monitored. All violations are logged. All breaches are prosecuted.</p>
+            </footer>
+        </article>
+    </main>
+
+    <footer class="main-footer">
+        <div class="footer-container">
+            <div class="footer-content">
+                <p class="copyright-notice">© 2026 PRAGMA. All rights reserved.</p>
+                <nav class="footer-navigation">
+                    <ul class="footer-nav-list">
+                        <li class="footer-nav-item"><a href="index.html" class="footer-link">Home</a></li>
+                        <li class="footer-nav-item"><a href="privacy.html" class="footer-link">Privacy Protocol</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
